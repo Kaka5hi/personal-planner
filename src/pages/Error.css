@@ -1,0 +1,29 @@
+.error_msg_container {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  text-align: center;
+}
+
+.error_msg_container > .center h1 {
+  margin-bottom: 20px;
+}
+
+.error_msg_container > .center a {
+  color: var(--dark-font-color);
+  padding: 10px;
+  border: 1px solid;
+  margin: 10px;
+  transition: 100ms ease;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.error_msg_container > .center a:hover {
+  cursor: pointer;
+  color: var(--light-bg-color);
+  background-color: var(--dark-font-color);
+  transition: 100ms ease;
+}
