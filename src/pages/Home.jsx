@@ -16,7 +16,15 @@ const Home = () => {
                     </div>
                 </div> 
                 <div className='bottom-section'>
-
+                    <div className="bottom-section_first">
+                        first
+                    </div>
+                    <div className="bottom-section_second">
+                        second
+                    </div>
+                    <div className="bottom-section_third">
+                        third
+                    </div>
                 </div> 
             </div>
         </div>
