@@ -1,7 +1,7 @@
 .top-section {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 20px;
 }
 
 .top-section > .top-section_left {
@@ -13,7 +13,11 @@
 }
 
 .top-section > .top-section_left h1 {
-  font-size: 2.5em;
+  font-size: 2.5vw;
+}
+
+.top-section > .top-section_left span {
+  font-size: 1.5vw;
 }
 
 .top-section > .top-section_right {
