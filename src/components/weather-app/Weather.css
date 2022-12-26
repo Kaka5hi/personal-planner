@@ -6,7 +6,7 @@
 
 .widget-container {
   width: 100%;
-  height: 150px;
+  height: 120px;
   object-fit: cover;
   border: none;
   color: var(--light-font-color);
@@ -44,7 +44,7 @@
 }
 
 svg {
-  font-size: 1.25rem;
+  font-size: 1.25vw;
 }
 
 .widget-inner_container:nth-child(1) {
@@ -55,22 +55,22 @@ svg {
 .widget-inner_container:nth-child(3) span {
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1vw;
   gap: 10px;
   font-weight: 500;
 }
 
 .widget-inner_container:nth-child(1) > h1 {
-  font-size: 3.5rem;
+  font-size: 3.5vw;
   font-weight: 500;
   text-align: center;
 }
 
 .widget-inner_container:nth-child(1) > h1 > span {
-  font-size: 3rem;
+  font-size: 3vw;
 }
 
 .widget-inner_container:nth-child(1) span {
-  font-size: 1rem;
+  font-size: 1vw;
   font-weight: 400;
 }
