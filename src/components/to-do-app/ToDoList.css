@@ -1,0 +1,57 @@
+.to-do_input-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.to-do_input-container > input {
+  flex: 4;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-family: inherit;
+}
+
+.to-do_input-container > input:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.to-do_input-container > button {
+  flex: 1;
+  text-transform: capitalize;
+  font-family: inherit;
+  font-size: 1vw;
+  padding: 10px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+  transition: 100ms ease;
+}
+
+.to-do_input-container > button:hover {
+  cursor: pointer;
+}
+
+.to-do_list-container {
+  margin-top: 20px;
+  background-color: var(--light-bg-color);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.to-do_list-container > li {
+  padding: 5px 10px;
+  font-weight: 500;
+  max-width: 30vw;
+  list-style: initial;
+  list-style-position: inside;
+}
+
+.to-do_list-container > li::first-letter {
+  text-transform: uppercase;
+}

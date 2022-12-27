@@ -1,0 +1,67 @@
+.recent-task_button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.recent-task_button-container > button {
+  background-color: var(--light-bg-color);
+  color: var(--dark-font-color);
+  padding: 10px;
+  font-weight: 700;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: capitalize;
+  font-family: inherit;
+  font-size: 1vw;
+  transition: 100ms ease;
+  border: 1px solid transparent;
+}
+
+.recent-task_button-container > button:hover {
+  cursor: pointer;
+  transition: 100ms ease;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.recent-task_inner-container {
+  display: grid;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.recent-task_inner-container > .single-task {
+  background-color: var(--light-bg-color);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.single-task_top {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  padding: 10px;
+}
+
+.single-task_top > button {
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.single-task_top > button:hover {
+  cursor: pointer;
+}
+
+.single-task_bottom {
+  padding: 10px 20px;
+}
