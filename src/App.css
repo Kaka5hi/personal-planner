@@ -1,7 +1,9 @@
 /* root */
 :root {
   --light-bg-color: #ffffff;
+  --dark-bg-color: #000000;
   --dark-font-color: #000000;
+  --light-font-color: #ffffff;
   --body-bg-color: #ececec;
 }
 /* root */
@@ -28,12 +30,11 @@ body {
   color: var(--dark-font-color);
 }
 
-.main_container {
+.main-container {
   display: flex;
 }
 
 header {
-  width: 230px;
   height: 100vh;
   background: var(--light-bg-color);
   position: sticky;
@@ -50,26 +51,32 @@ nav > ul {
 
 nav > ul > li {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+nav > ul > li:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  border-right: 5px solid var(--dark-font-color);
 }
 
 nav > ul > li > a {
-  display: block;
   padding: 10px;
   color: var(--dark-font-color);
   background: var(--light-bg-color);
   border-radius: 5px 0 0 5px;
-  transition: 100ms ease;
   font-weight: 500;
-  font-size: 1.25em;
+  font-size: 1.25vw;
   display: flex;
   align-items: center;
   width: 100%;
   gap: 10px;
 }
 
-nav > ul > li > a:hover {
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-  border-right: 5px solid var(--dark-font-color);
+nav > ul > li > a svg {
+  font-size: 1.25vw;
 }
 
 main {
@@ -87,8 +94,28 @@ main {
   border: transparent;
 }
 
-.page_container {
-  padding: 20px;
-  background: var(--light-bg-color);
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+header > button {
+  position: absolute;
+  bottom: 20px;
+  font-family: inherit;
+  background: transparent;
+  color: var(--dark-font-color);
+  padding: 10px;
+  border: 1px solid;
+  transition: 100ms ease;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > button svg {
+  font-size: 1.25vw;
+}
+
+header > button:hover {
+  cursor: pointer;
+  color: var(--light-bg-color);
+  background-color: var(--dark-font-color);
+  transition: 100ms ease;
 }
