@@ -1,18 +1,21 @@
 import React from 'react'
 import './ToDoList.css'
+import SingleToDoTask from '../single-to-do-task/SingleToDoTask'
+
 
 const ToDoList = () => {
 
     const [toDo, setToDo] = React.useState('')
     const [list, setList] = React.useState([])
-
     const handleToDo = () => {
         setList(prev => [
-            ...prev, toDo
+            ...prev, {task: toDo, id:new Date().getTime().toString()}
             ]
         )
         setToDo('')
     }
+
+
 
     return (
         <div className='to-do_container'>
@@ -24,9 +27,9 @@ const ToDoList = () => {
                 />
                 <button onClick={handleToDo}>add</button>
             </div>
-            <ol className="to-do_list-container">
-                {list.map((item, index) => <li key={index}>{item}</li>)}
-            </ol>
+            <div className="to-do_list-container">
+                {list.map((item) => <SingleToDoTask key={item.id} id={item.id} task={item.task} list={list} setList={setList}/>)}
+            </div>
         </div>
     )
 }
