@@ -44,14 +44,37 @@
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
-.to-do_list-container > li {
-  padding: 5px 10px;
-  font-weight: 500;
-  max-width: 30vw;
-  list-style: initial;
-  list-style-position: inside;
+.to-do_list-container > .single-task {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.to-do_list-container > li::first-letter {
+.to-do_list-container > .single-task > span {
+  font-weight: 500;
+  max-width: 12vw;
+  font-size: 1vw;
+  margin-right: auto;
+}
+
+.to-do_list-container > .single-task > span::first-letter {
   text-transform: uppercase;
+}
+
+.to-do_list-container > .single-task > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+}
+
+.to-do_list-container > .single-task > button:hover {
+  cursor: pointer;
+}
+
+.to-do_list-container > .single-task > button > svg {
+  font-size: 1.25vw;
 }
