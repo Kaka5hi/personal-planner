@@ -9,6 +9,7 @@ const SingleToDoTask = ({id, task, list, setList}) => {
     const handleDelete = (id) => {
         const filteredList = list.filter(item => item.id !== id)
         setList(filteredList);
+        localStorage.setItem('toDo', JSON.stringify(filteredList))
     }
 
     return (
