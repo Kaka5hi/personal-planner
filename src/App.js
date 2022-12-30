@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
-import Tasks from './pages/Tasks'
+import Project from './pages/Project'
 import Budget from './pages/Budget'
 import Notes from './pages/Notes'
 import Setting from './pages/Setting'
@@ -15,7 +15,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<Sharedlayout />}>
                     <Route index element={<Home />} />
-                    <Route path='/tasks' element={<Tasks />} />
+                    <Route path='/project' element={<Project />} />
                     <Route path='/budget' element={<Budget />} />
                     <Route path='/notes' element={<Notes />} />
                     <Route path='/setting' element={<Setting />} />
