@@ -7,15 +7,39 @@ const ToDoList = () => {
 
     const [toDo, setToDo] = React.useState('')
     const [list, setList] = React.useState([])
+
     const handleToDo = () => {
-        setList(prev => [
-            ...prev, {task: toDo, id:new Date().getTime().toString()}
-            ]
-        )
-        setToDo('')
+        if(toDo === '') {
+            alert('Cannot create empty to-do list')
+        } else {
+            const newTaskList = [...list, {task: toDo, id:new Date().getTime().toString()}]
+            setList(prev => [
+                ...prev,
+                {task: toDo, id:new Date().getTime().toString()}
+                ]
+            )
+            setToDo('')
+            localStorage.setItem('toDo', JSON.stringify(newTaskList))
+        }
     }
 
+    const getToDoListDataLocally = () => {
+        const data = JSON.parse(localStorage.getItem('toDo'))
+        if(data === null) {
+            return null
+        } else {
+            return data
+        }
+    }
 
+    React.useEffect(()=> {
+        const localData = getToDoListDataLocally()
+        if(localData === null) {
+            return
+        } else {
+            setList(localData);
+        }
+    }, [])
 
     return (
         <div className='to-do_container'>
