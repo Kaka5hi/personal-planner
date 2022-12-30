@@ -1,0 +1,76 @@
+.project_outer-container {
+  padding: 10px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project_outer-container > div {
+  background-color: var(--light-bg-color);
+  box-shadow: rgb(0 0 0 / 15%) 2.4px 2.4px 3.2px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.create_board-item_container {
+  flex-direction: column;
+}
+
+.create_board-item_container > h1 {
+  font-size: 1.5vw;
+}
+.create_board-btn_container button {
+  padding: 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  width: max-content;
+  transition: 200ms ease-in-out;
+}
+
+.create_board-btn_container button:hover {
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+}
+
+.create_board-item_container > .btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.create_board-item_container > .btn-container > button {
+  padding: 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  width: max-content;
+  transition: 200ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create_board-item_container > .btn-container > button:hover {
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+}
