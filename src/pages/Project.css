@@ -22,6 +22,11 @@
   flex-direction: column;
 }
 
+.create_board-item_container:hover {
+  cursor: pointer;
+  box-shadow: rgba(108, 145, 248, 0.8) 2.4px 2.4px 3.2px;
+}
+
 .create_board-item_container > h1 {
   font-size: 1.5vw;
 }
@@ -52,7 +57,8 @@
   gap: 20px;
 }
 
-.create_board-item_container > .btn-container > button {
+.create_board-item_container > .btn-container > button,
+.create_board-item_container > .btn-container > a {
   padding: 10px;
   background-color: transparent;
   font-family: inherit;
@@ -68,7 +74,94 @@
   justify-content: center;
 }
 
-.create_board-item_container > .btn-container > button:hover {
+.create_board-item_container > .btn-container > button:hover,
+.create_board-item_container > .btn-container > a:hover {
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+}
+
+/* Popup styling */
+
+.create_board-popup_modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create_board-popup_modal > .inner-container {
+  width: 350px;
+  background: var(--light-bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: rgb(0 0 0 / 45%) 2.4px 2.4px 3.2px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.create_board-popup_modal > .inner-container > .top {
+  font-size: 1.5rem;
+  box-shadow: rgb(0 0 0 / 45%) 2.4px 2.4px 3.2px;
+  background: var(--dark-bg-color);
+  color: var(--light-font-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.create_board-popup_modal > .inner-container > .middle {
+  padding: 10px;
+}
+
+.create_board-popup_modal > .inner-container > .middle form input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 1rem;
+  outline: none;
+}
+
+.create_board-popup_modal > .inner-container > .middle form input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.55);
+}
+
+.create_board-popup_modal > .inner-container > .bottom {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.create_board-popup_modal > .inner-container > .bottom button {
+  padding: 10px 20px;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  transition: 200ms ease-in-out;
+}
+
+.create_board-popup_modal > .inner-container > .bottom button:hover {
   cursor: pointer;
   transition: 200ms ease-in-out;
   background-color: var(--dark-bg-color);
