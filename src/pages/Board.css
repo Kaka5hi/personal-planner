@@ -1,0 +1,12 @@
+.board_outer-container {
+  width: 100%;
+  height: 100vh;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.board_inner-container {
+  min-width: fit-content;
+  display: flex;
+  gap: 20px;
+}
