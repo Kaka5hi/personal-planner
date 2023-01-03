@@ -1,0 +1,9 @@
+.label_chips > span {
+  padding: 5px 10px;
+  background: lightseagreen;
+  color: var(--light-font-color);
+  width: fit-content;
+  font-size: 14px;
+  text-transform: capitalize;
+  border-radius: 5px;
+}
