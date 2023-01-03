@@ -17,6 +17,7 @@
 
 a {
   text-decoration: none;
+  color: var(--dark-font-color);
 }
 
 li {
@@ -81,9 +82,13 @@ nav > ul > li > a svg {
 
 main {
   width: 100%;
-  padding: 20px;
   background-color: var(--body-bg-color);
   min-height: 100vh;
+  overflow-x: auto;
+}
+
+.page-container {
+  padding: 20px;
 }
 
 .active {
