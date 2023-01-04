@@ -7,10 +7,10 @@ const Board = () => {
     const params = useParams()
 
     return (
-        <div className='page-container' style={{paddingRight:0, paddingBottom: '5px'}}>
+        <div className='page-container ' style={{paddingRight:0, paddingBottom: '2px', paddingLeft: 0}}>
             <h1 style={{textAlign:'center', textTransform:'capitalize'}}>{params.name}</h1>
             <div className="board_outer-container">
-                <div className="board_inner-container">
+                <div className="board_inner-container ">
                     <SingleBoard />
                     <SingleBoard />
                     <SingleBoard />
