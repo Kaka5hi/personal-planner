@@ -1,0 +1,16 @@
+.priority_chips > span {
+  padding: 5px 10px;
+  background: #ff3b30;
+  color: var(--light-font-color);
+  width: fit-content;
+  font-size: 14px;
+  text-transform: capitalize;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.priority_chips > span svg {
+  font-size: 14px;
+}
