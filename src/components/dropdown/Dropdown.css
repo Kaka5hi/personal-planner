@@ -1,0 +1,35 @@
+.dropdown {
+  position: absolute;
+  right: 5px;
+  top: 40px;
+  background-color: var(--light-bg-color);
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  text-align: center;
+}
+
+.dropdown > p {
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
+  transition: 200ms ease-in-out;
+}
+
+.dropdown > p svg {
+  font-size: 1rem;
+}
+
+.dropdown > p:hover {
+  cursor: pointer;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+  box-shadow: rgba(0, 0, 0, 0.45) 2.4px 2.4px 3.2px;
+  transition: 200ms ease-in-out;
+}
