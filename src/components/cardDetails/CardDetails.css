@@ -1,0 +1,147 @@
+.card_details {
+  background-color: rgba(0, 0, 0, 0.45);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_details-inner_container {
+  width: 600px;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.card_details-top {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.card_details-top > svg {
+  margin-left: auto;
+}
+
+.card_details-top > svg:hover {
+  cursor: pointer;
+}
+
+.card_details-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card_details-mid input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card_details-mid input::placeholder {
+  color: rgba(128, 128, 128, 0.718);
+  text-transform: capitalize;
+}
+
+.card_details-mid > .tag_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card_details-mid > .tag_container > .top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card_details-mid > .tag_container span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.card_details-mid > .tag_container > .bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.priority_and_date_container {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.priority_and_date_container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subtask_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subtask_container > span {
+  width: max-content;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: rgba(128, 128, 128, 0.618);
+}
+
+.subtask_container > span:hover {
+  cursor: pointer;
+  color: var(--dark-font-color);
+}
+
+.subtask_input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subtask_btn-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  width: max-content;
+  padding: 10px;
+  font-family: inherit;
+  background-color: var(--light-bg-color);
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  color: rgba(128, 128, 128, 0.718);
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: capitalize;
+  transition: 200ms ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  transition: 200ms ease-in-out;
+}
