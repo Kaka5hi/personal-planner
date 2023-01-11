@@ -2,24 +2,31 @@ import React from 'react'
 import './Category.css'
 import { MdMoreHoriz } from 'react-icons/md'
 import Card from '../card/Card.jsx'
-import Editable from '../editable/Editable'
+import EditableCard from '../editableCard/EditableCard'
 import Dropdown from '../dropdown/Dropdown'
 
-const Category = () => {
+const Category = ({data, setCategoryList, categoryList}) => {
 
     const [dropdown, setDropdown] = React.useState(false)
 
     return (
-        <div className='category'>
-            {dropdown && <Dropdown type={'category'}/>}
+        <div id={data?.category_id} style={{position:'relative'}} className='category'>
+            {dropdown && <Dropdown 
+                            setCategoryList={setCategoryList}
+                            categoryList={categoryList}
+                            id={data?.category_id} 
+                            type={'category'}
+                        />}
             <div className="category_heading">
-                <h4>Heading of the Category <span>0</span></h4>
-                <MdMoreHoriz onClick={() => setDropdown(true)}/>
+                <h4>{data?.category_name || 'New category'} <span>{data?.category_cards.length === 0 ? '' : data?.category_cards.length}</span></h4>
+                <MdMoreHoriz onClick={() => setDropdown(prev => !prev)}/>
             </div>
             <div className="category_cards-container ">
                 <Card />
+                <Card />
+                <Card />
             </div>
-            <Editable text={'card'}/>
+            <EditableCard text={'card'}/>
         </div>
     )
 }
