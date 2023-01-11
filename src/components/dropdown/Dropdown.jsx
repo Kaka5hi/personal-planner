@@ -2,10 +2,16 @@ import React from 'react'
 import {FaTrashAlt} from 'react-icons/fa'
 import './Dropdown.css'
 
-const Dropdown = ({type}) => {
+const Dropdown = ({type, setCategoryList, id, categoryList}) => {
+    
+    const handleCategoryDelete = (id) => {
+        const filteredList = categoryList.filter(item => id !== item.category_id)
+        setCategoryList(filteredList)
+    }
+
     return (
         <div className='dropdown'>
-            <p>Delete {type} <FaTrashAlt /></p>
+            <p onClick={() => handleCategoryDelete(id)}>Delete {type} <FaTrashAlt /></p>
         </div>
     )
 }
