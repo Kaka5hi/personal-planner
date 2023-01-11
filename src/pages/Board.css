@@ -7,7 +7,7 @@
 .board_inner-container {
   min-width: fit-content;
   height: 100%;
-  padding-right: 5px;
+  padding: 0 10px;
   display: flex;
   gap: 20px;
 }
