@@ -1,0 +1,28 @@
+.editable {
+  background-color: var(--light-bg-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 360px;
+}
+
+.editable > p {
+  text-transform: capitalize;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 16px;
+  transition: 200ms ease-in-out;
+  padding: 10px;
+}
+
+.editable > p:hover {
+  cursor: pointer;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+  box-shadow: rgba(0, 0, 0, 0.45) 2.4px 2.4px 3.2px;
+  transition: 200ms ease-in-out;
+}
