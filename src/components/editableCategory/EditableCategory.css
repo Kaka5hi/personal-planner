@@ -1,4 +1,4 @@
-.editable {
+.editable_category {
   background-color: var(--light-bg-color);
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   border-radius: 5px;
@@ -6,7 +6,7 @@
   min-width: 360px;
 }
 
-.editable > p {
+.editable_category > p {
   text-transform: capitalize;
   font-weight: 700;
   text-align: center;
@@ -19,7 +19,7 @@
   padding: 10px;
 }
 
-.editable > p:hover {
+.editable_category > p:hover {
   cursor: pointer;
   background-color: var(--dark-bg-color);
   color: var(--light-font-color);
@@ -27,14 +27,14 @@
   transition: 200ms ease-in-out;
 }
 
-.editable > form {
+.editable_category > form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 10px;
 }
 
-.editable > form input {
+.editable_category > form input {
   width: 100%;
   padding: 8px;
   border-radius: 5px;
@@ -45,22 +45,22 @@
   font-weight: 500;
 }
 
-.editable > form input::placeholder {
+.editable_category > form input::placeholder {
   color: rgba(128, 128, 128, 0.718);
   text-transform: capitalize;
 }
 
-.editable > form input:focus {
+.editable_category > form input:focus {
   border: 1px solid rgba(128, 128, 128, 1);
 }
 
-.editable > form .form_btn {
+.editable_category > form .form_btn {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.editable > form .form_btn button {
+.editable_category > form .form_btn button {
   padding: 5px 10px;
   font-family: inherit;
   background-color: var(--light-bg-color);
@@ -73,7 +73,7 @@
   transition: 200ms ease-in-out;
 }
 
-.editable > form .form_btn button:hover {
+.editable_category > form .form_btn button:hover {
   cursor: pointer;
   background-color: var(--dark-bg-color);
   color: var(--light-font-color);
