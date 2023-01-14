@@ -5,28 +5,41 @@ import Card from '../card/Card.jsx'
 import EditableCard from '../editableCard/EditableCard'
 import Dropdown from '../dropdown/Dropdown'
 
-const Category = ({data, setCategoryList, categoryList}) => {
+const Category = ({category, setCategoryList, categoryList, createNewCard, deleteCard, handleDragEnter, handleDragEnd}) => {
 
     const [dropdown, setDropdown] = React.useState(false)
 
     return (
-        <div id={data?.category_id} style={{position:'relative'}} className='category'>
+        <div id={category?.category_id} style={{position:'relative'}} className='category'>
             {dropdown && <Dropdown 
                             setCategoryList={setCategoryList}
                             categoryList={categoryList}
-                            id={data?.category_id} 
+                            id={category?.category_id} 
                             type={'category'}
                         />}
             <div className="category_heading">
-                <h4>{data?.category_name || 'New category'} <span>{data?.category_cards.length === 0 ? '' : data?.category_cards.length}</span></h4>
+                <h4>{category?.category_name || 'New category'} <span>{category?.category_cards.length === 0 ? '' : category?.category_cards.length}</span></h4>
                 <MdMoreHoriz onClick={() => setDropdown(prev => !prev)}/>
             </div>
             <div className="category_cards-container ">
-                <Card />
-                <Card />
-                <Card />
+                {category.category_cards?.map((card) => <Card 
+                                                            key={card?.card_id}
+                                                            cardId={card?.card_id}
+                                                            card={card} 
+                                                            deleteCard={deleteCard}
+                                                            categoryId={category?.category_id}
+                                                            handleDragEnd={handleDragEnd}
+                                                            handleDragEnter={handleDragEnter}
+                                                        />)}
             </div>
-            <EditableCard text={'card'}/>
+            <EditableCard 
+                text={'card'}
+                createNewCard={createNewCard}
+                category={category}
+                categoryId={category?.category_id}
+                setCategoryList={setCategoryList}
+                categoryList={categoryList}
+            />
         </div>
     )
 }
