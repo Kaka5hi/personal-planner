@@ -85,11 +85,24 @@
   display: flex;
   flex-direction: column;
   font-weight: 500;
+  gap: 10px;
 }
 
 .priority_and_date_container > div {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.priority_and_date_container > .left > .priority_container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.priority_and_date_container > .left > .priority_container div {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -123,7 +136,7 @@
   gap: 10px;
 }
 
-button {
+.card_details-mid button {
   width: max-content;
   padding: 10px;
   font-family: inherit;
@@ -137,11 +150,50 @@ button {
   transition: 200ms ease-in-out;
 }
 
-button:hover {
+.card_details-mid button:hover {
   cursor: pointer;
   background-color: var(--dark-bg-color);
   color: var(--light-font-color);
   border: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   transition: 200ms ease-in-out;
+}
+
+.subtask_progress-bar_container {
+  height: 8px;
+  width: 100%;
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.subtask_progress-bar {
+  height: 8px;
+  background: #72a0c9;
+}
+
+.subtask_container > .subtask {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.subtask_container > .subtask > input {
+  border: 1px solid black;
+  width: 10px;
+  display: inline;
+}
+
+.subtask_container > .subtask > p::first-letter {
+  text-transform: capitalize;
+}
+
+.subtask_container > .subtask svg {
+  margin-left: auto;
+  color: rgba(128, 128, 128, 0.718);
+}
+
+.subtask_container > .subtask svg:hover {
+  cursor: pointer;
+  color: var(--dark-bg-color);
 }
