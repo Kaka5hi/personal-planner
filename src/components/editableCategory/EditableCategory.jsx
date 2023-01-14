@@ -7,7 +7,7 @@ const Editable = ({text, setCategoryList}) => {
     const [editableText, setEditableText] = React.useState('')
     const [showEditable, setShowEditable] = React.useState(false)
 
-    const handleTaskSubmit = (e) => {
+    const handleCategorySubmit = (e) => {
         e.preventDefault()
         setCategoryList(prev => [
             ...prev, {
@@ -20,14 +20,19 @@ const Editable = ({text, setCategoryList}) => {
         setEditableText('')
     }
 
+    const handleClose = () => {
+        setShowEditable(false)
+        setEditableText('')
+    }
+
     return (
-        <div className='editable'>
+        <div className='editable_category'>
             {showEditable
-            ?   <form onSubmit={handleTaskSubmit}>
+            ?   <form onSubmit={handleCategorySubmit}>
                     <input onChange={(e) => setEditableText(e.target.value)} autoFocus type="text" autoComplete='off' placeholder={`enter ${text} name'`} value={editableText}/>
                     <div className="form_btn">
-                        <button onClick={handleTaskSubmit}>add</button>
-                        <button onClick={() => setShowEditable(false)}>close</button>
+                        <button onClick={handleCategorySubmit}>add</button>
+                        <button onClick={handleClose}>close</button>
                     </div>
                 </form>
             :   <p onClick={() => setShowEditable(true)}>
