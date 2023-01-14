@@ -1,10 +1,10 @@
 import React from 'react'
 import './LabelChips.css'
 
-const labelChips = () => {
+const labelChips = ({text, color}) => {
     return (
         <div className='label_chips'>
-            <span>label 1</span>
+            <span style={ color ? {background: color} : {background: '#5856d6'}}>{text}</span>
         </div>
     )
 }
