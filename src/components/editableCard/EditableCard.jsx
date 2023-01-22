@@ -1,11 +1,11 @@
 import React from 'react'
 import './EditableCard.css'
-import {AiOutlinePlus} from 'react-icons/ai'
+import { AiOutlinePlus } from 'react-icons/ai'
 import CardDetails from '../cardDetails/CardDetails'
 import { useParams } from 'react-router-dom'
 
 
-const Editable = ({text, category, categoryId, setCategoryList, categoryList,}) => {
+const Editable = ({ text, category, categoryId, setCategoryList, categoryList, }) => {
 
     const params = useParams()
     // for new card popup
@@ -13,7 +13,7 @@ const Editable = ({text, category, categoryId, setCategoryList, categoryList,}) 
 
     const createNewCard = (cardDetails, categoryId) => {
         const newCard = {
-            card_id:new Date().getTime() + Math.random(),
+            card_id: new Date().getTime() + Math.random(),
             card_name: cardDetails?.card_name,
             card_description: cardDetails?.card_description,
             card_labels: cardDetails?.card_labels,
@@ -23,7 +23,7 @@ const Editable = ({text, category, categoryId, setCategoryList, categoryList,}) 
         }
 
         const index = categoryList.findIndex(item => item.category_id === categoryId)
-        if(index < 0) {
+        if (index < 0) {
             return
         }
 
@@ -33,23 +33,18 @@ const Editable = ({text, category, categoryId, setCategoryList, categoryList,}) 
         setShowEditableCard(false)
     }
 
-    React.useState(()=> {
-        localStorage.setItem(`${params.id}`, JSON.stringify(categoryList))
-    }, [categoryList])
-
-
     return (
         <div className='editable_card'>
             {showEditableCard
-                ?   <CardDetails 
-                        setShowEditableCard={setShowEditableCard} 
-                        createNewCard={createNewCard} 
-                        category={category}
-                        categoryId={categoryId}
-                    />
-                :   <p onClick={() => setShowEditableCard(true)}>
-                        <AiOutlinePlus /> new {text}
-                    </p> 
+                ? <CardDetails
+                    setShowEditableCard={setShowEditableCard}
+                    createNewCard={createNewCard}
+                    category={category}
+                    categoryId={categoryId}
+                />
+                : <p onClick={() => setShowEditableCard(true)}>
+                    <AiOutlinePlus /> new {text}
+                </p>
             }
         </div>
     )
