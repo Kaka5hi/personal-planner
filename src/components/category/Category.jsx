@@ -30,6 +30,8 @@ const Category = ({category, setCategoryList, categoryList, createNewCard, delet
                                                             categoryId={category?.category_id}
                                                             handleDragEnd={handleDragEnd}
                                                             handleDragEnter={handleDragEnter}
+                                                            categoryList={categoryList}
+                                                            setCategoryList={setCategoryList}
                                                         />)}
             </div>
             <EditableCard 
