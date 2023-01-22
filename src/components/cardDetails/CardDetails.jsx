@@ -30,7 +30,7 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
     }
 
     const handleSubtaskSubmit = () => {
-        const newSubTask = {subtask_name: subTask, subtask_id: new Date().getTime()}
+        const newSubTask = {subtask_status: false,subtask_name: subTask, subtask_id: new Date().getTime()}
         const tempSubtasks = [...cardDetails.card_subtasks, newSubTask]
         setCardDetails(prev => {
             return {...prev, card_subtasks:tempSubtasks}
@@ -134,14 +134,17 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
                     </div>
                     <div className="subtask_container">
                         <h4 style={{textTransform:'capitalize', fontWeight:500}}>{(cardDetails?.card_subtasks?.length === 0) ? '': 'Subtasks'}</h4>
-                        <div className="subtask_progress-bar_container">
-                            <div className="subtask_progress-bar" style={{width:'50%'}}></div>
-                        </div>
-                        {cardDetails?.card_subtasks?.map(task => <div key={task?.subtask_id} className='subtask'>
-                                                                    <input type="checkbox"/>
-                                                                    <p>{task?.subtask_name}</p>
-                                                                    <FaTrashAlt />
-                                                                </div>)}
+                        {
+                            cardDetails?.card_subtasks?.map(task => {
+                                return (
+                                    <div key={task?.subtask_id} className='subtask'>
+                                        <input type="checkbox"/>
+                                        <p>{task?.subtask_name}</p>
+                                        <FaTrashAlt />
+                                    </div>
+                                )
+                            })    
+                        }
                         {showSubtask && 
                             <div className="subtask_input-container">
                                 <input 
