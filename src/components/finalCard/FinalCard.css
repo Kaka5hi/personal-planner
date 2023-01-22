@@ -35,6 +35,22 @@
   gap: 10px;
 }
 
+.final_card-inner_container > .bottom > .date,
+.final_card-inner_container > .bottom > .subtask {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 500;
+  color: gray;
+}
+
+.final_card-inner_container > .bottom > .date svg,
+.final_card-inner_container > .bottom > .subtask svg {
+  font-size: 14px;
+}
+
 .final_card-inner_container > .bottom > .card_subtask_container {
   display: flex;
   flex-direction: column;
@@ -64,8 +80,24 @@
   > .bottom
   > .card_subtask_container
   > .card_single-subtask
+  > p::first-letter {
+  text-transform: uppercase;
+}
+
+.final_card-inner_container
+  > .bottom
+  > .card_subtask_container
+  > .card_single-subtask
   > svg {
   margin-left: auto;
+}
+
+.final_card-inner_container
+  > .bottom
+  > .card_subtask_container
+  > .card_single-subtask
+  > svg:hover {
+  cursor: pointer;
 }
 
 .final_card-inner_container > button {
