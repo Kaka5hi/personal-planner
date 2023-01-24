@@ -1,0 +1,66 @@
+.notes_outer-container {
+  margin-block: 1.25rem;
+}
+
+.notes_top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.notes_create > button {
+  background-color: var(--light-bg-color);
+  box-shadow: rgb(0 0 0 / 15%) 2.4px 2.4px 3.2px;
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  width: max-content;
+  padding: 10px;
+  font-family: inherit;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.notes_create > button:hover {
+  cursor: pointer;
+  background-color: var(--dark-bg-color);
+  color: var(--light-bg-color);
+}
+
+.notes_search {
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.notes_search > input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-right: 35px;
+}
+
+.notes_search > svg {
+  position: absolute;
+  right: 10px;
+  background-color: transparent;
+}
+
+.notes_main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  align-items: start;
+  gap: 15px;
+  padding-block: 10px;
+}
