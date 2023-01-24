@@ -1,0 +1,107 @@
+.note_editor {
+  background-color: var(--light-bg-color);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.note_editor input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.note_editor input::placeholder {
+  font-weight: 400;
+}
+
+.note_editor button {
+  width: max-content;
+  padding: 8px;
+  font-family: inherit;
+  background-color: var(--light-bg-color);
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  color: rgba(128, 128, 128, 0.718);
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: capitalize;
+  transition: 200ms ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.note_editor button:hover {
+  cursor: pointer;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  transition: 200ms ease-in-out;
+}
+
+.note_tags {
+  display: flex;
+  gap: 10px;
+}
+
+.note_tags > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.note_tags > button {
+  padding-inline: 20px;
+}
+
+.note_tags-chips_container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.note_tags-chips {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgb(88, 86, 214);
+  padding: 5px 10px;
+  color: var(--light-font-color);
+  width: fit-content;
+  font-size: 14px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.note_tags-chips > svg:hover {
+  cursor: pointer;
+}
+
+.note_content > textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 5px;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  border-radius: 5px;
+}
+
+.note_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
