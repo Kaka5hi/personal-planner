@@ -1,7 +1,6 @@
 .single_note-full_view {
   background-color: var(--light-bg-color);
   border-radius: 8px;
-  overflow: hidden;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
@@ -15,6 +14,7 @@
 .single_note-inner_container > .top {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .single_note-inner_container > .top svg {
@@ -27,6 +27,48 @@
 }
 
 .single_note-inner_container > .top svg:hover {
+  cursor: pointer;
+}
+
+.single_note-inner_container > .top > .top_dropdown {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background-color: var(--light-bg-color);
+  border-radius: 5px;
+  text-transform: capitalize;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 100000000;
+  animation: slideDown 400ms ease-out 1;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0.2;
+    transition: 400ms ease-out;
+  }
+  to {
+    opacity: 1;
+    transition: 400ms ease-out;
+  }
+}
+
+.single_note-inner_container > .top > .top_dropdown > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  padding: 5px 15px;
+  color: rgba(128, 128, 128, 0.718);
+}
+
+.single_note-inner_container > .top > .top_dropdown > span:hover {
+  color: var(--dark-font-color);
   cursor: pointer;
 }
 
