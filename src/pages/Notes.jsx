@@ -52,7 +52,7 @@ const Notes = () => {
                     />
                 }
                     {
-                        notes?.map(note => <SingleNote key={note.id} note={note} />)
+                        notes?.map(note => <SingleNote key={note.id} note={note} notes={notes} setNotes={setNotes} />)
                     }
                 </div>
             </div>
