@@ -8,9 +8,10 @@ const Notes = () => {
 
     // main notes array
     const [notes, setNotes] = React.useState(JSON.parse(localStorage.getItem('notes')) || [])
-
     // to show note editior when we click on +add note
     const [showNoteEditor, setShowNetEditor] = React.useState(false)
+    // query state for search functionality
+    const [query, setQuery] = React.useState('')
 
     // create new note function
     const createNewNote = (newNote) => {
@@ -22,6 +23,10 @@ const Notes = () => {
         setShowNetEditor(false)
     }
     
+    const filteredNotes = React.useMemo(() => {
+        return notes.filter(note => note.title.toLowerCase().includes(query.toLowerCase()))
+    }, [notes, query])
+
     React.useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notes))
     }, [notes])
@@ -38,21 +43,23 @@ const Notes = () => {
                         <input
                             type="text"
                             placeholder="Search note"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
                         />
                         <FiSearch />
                     </div>
                 </div>
                 <div className="notes_main">
-                {
-                    showNoteEditor
-                    &&
-                    <NoteEditor
-                        createNewNote={createNewNote}
-                        setShowNetEditor={setShowNetEditor}
-                    />
-                }
                     {
-                        notes?.map(note => <SingleNote key={note.id} note={note} notes={notes} setNotes={setNotes} />)
+                        showNoteEditor
+                        &&
+                        <NoteEditor
+                            createNewNote={createNewNote}
+                            setShowNetEditor={setShowNetEditor}
+                        />
+                    }
+                    {
+                        filteredNotes?.map(note => <SingleNote key={note.id} note={note} notes={notes} setNotes={setNotes} />)
                     }
                 </div>
             </div>
