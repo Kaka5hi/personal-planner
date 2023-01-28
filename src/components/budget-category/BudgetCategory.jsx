@@ -5,7 +5,7 @@ import { MdCreate } from 'react-icons/md'
 
 import './BudgetCategory.css'
 
-const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryNameSubmit, setCategoryList, setGotToTransaction}) => {
+const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryNameSubmit, setCategoryList, showTransactionPopup}) => {
     
     const handleDeleteBudgetCategory = (id) => {
         const newList = categoryList.filter(item => item.id !== id)
@@ -44,7 +44,7 @@ const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryN
                                     />
                                 <MdCreate
                                     title="Go to transaction"
-                                    onClick={()=> setGotToTransaction(true)}
+                                    onClick={()=> showTransactionPopup(item?.categoryName)}
                                     />
                             </div>
                         </span>
