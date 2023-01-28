@@ -1,62 +1,58 @@
 import React from 'react'
-import BudgetCategory from '../components/budget-category/BudgetCategory'
-import DonutChart from '../components/donut-chart/DonutChart'
-import Transaction from '../components/transaction/Transaction'
-import './Budget.css'
+import { FiPlus } from 'react-icons/fi'
+import { FaTrashAlt } from 'react-icons/fa'
+import { MdCreate } from 'react-icons/md'
 
-const Budget = () => {
-    //category input
-    const categoryRef = React.useRef("")
+import './BudgetCategory.css'
 
-    //budget category list 
-    const [categoryList, setCategoryList] = React.useState([])
+const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryNameSubmit, setCategoryList, showTransactionPopup}) => {
     
-    //for warning/popup text if user submit catgeory name empty
-    const [noCategoryNameSubmit, setNoCategoryNameSubmit] = React.useState(false)
-
-    //for transaction form
-    const [goToTransaction, setGotToTransaction] = React.useState(false)
-
-    //function will create new categorty in category secion
-    const createCategory = (e) => {
-        e.preventDefault()
-        const categoryName = categoryRef.current.value
-        if (categoryName === "") {
-            setNoCategoryNameSubmit(true)
-        } else {
-            setCategoryList(prev => [
-                ...prev, {categoryName, id: new Date().getTime()}
-            ])
-            categoryRef.current.value = ""
-            setNoCategoryNameSubmit(false)
-        }
+    const handleDeleteBudgetCategory = (id) => {
+        const newList = categoryList.filter(item => item.id !== id)
+        setCategoryList(newList)
     }
 
     return (
-        <div className='page-container' style={{position: 'relative'}}>
-            <h1 style={{ textAlign: 'center' }}>Budget</h1>
-            <div className="budget_inner-container">
-                <div className="budget_top">
-                    <DonutChart />
-                    <BudgetCategory
-                        createCategory={createCategory}
-                        categoryRef={categoryRef}
-                        noCategoryNameSubmit={noCategoryNameSubmit}
-                        categoryList={categoryList}
-                        setCategoryList={setCategoryList}
-                        setGotToTransaction={setGotToTransaction}
-                    />
-                </div>
-            </div>
-            {
-                goToTransaction
-                &&
-                <Transaction
-                    setGotToTransaction={setGotToTransaction}
+        <div className="budget_category">
+            <h3>expense category</h3>
+            <span>create expense categories like: Food, Rent, Saving etc.</span>
+            <form onSubmit={createCategory}>
+                <input
+                    type="text"
+                    placeholder="category name"
+                    ref={categoryRef}
                 />
+                <button type="submit">
+                    <FiPlus />
+                </button>
+            </form>
+            {
+                noCategoryNameSubmit
+                &&
+                <span className="budget_category_warning">Name cannot be empty</span>
             }
+            <div className="category_chips-container">
+                {
+                    categoryList?.map(item => {
+                    return (
+                        <span key={item?.id} className="category_chips">
+                            {item.categoryName}
+                            <div className="chips_button">
+                                <FaTrashAlt
+                                    title="Delete Category"
+                                    onClick={() => handleDeleteBudgetCategory(item?.id)}
+                                    />
+                                <MdCreate
+                                    title="Go to transaction"
+                                    onClick={()=> showTransactionPopup(item?.categoryName)}
+                                    />
+                            </div>
+                        </span>
+                    )})
+                }
+            </div>
         </div>
     )
 }
 
-export default Budget
+export default BudgetCategory
