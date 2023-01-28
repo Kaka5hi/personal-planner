@@ -1,0 +1,113 @@
+.budget_category {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.budget_category > h3 {
+  text-transform: capitalize;
+}
+
+.budget_category > span {
+  font-size: 13px;
+  color: gray;
+  font-weight: 400;
+}
+
+.budget_category > span::first-letter {
+  text-transform: capitalize;
+}
+
+.budget_category > form {
+  align-self: center;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.budget_category > form input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.budget_category > form input::placeholder {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.budget_category > form button {
+  width: max-content;
+  padding: 8px;
+  font-family: inherit;
+  background-color: var(--light-bg-color);
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  color: rgba(128, 128, 128, 0.718);
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: capitalize;
+  transition: 200ms ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.budget_category > form button:hover {
+  cursor: pointer;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  transition: 200ms ease-in-out;
+}
+
+.budget_category > .budget_category_warning {
+  text-align: center;
+  color: #ff3b30;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.category_chips-container {
+  margin: 5px 30px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.category_chips-container > .category_chips {
+  padding: 10px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  text-transform: capitalize;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.category_chips-container > .category_chips:hover {
+  background-color: rgba(202, 202, 202, 0.247);
+  border: 1px solid rgba(202, 202, 202, 0.247);
+  cursor: default;
+}
+
+.category_chips-container > .category_chips > .chips_button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.category_chips-container > .category_chips > .chips_button svg:hover {
+  cursor: pointer;
+}
