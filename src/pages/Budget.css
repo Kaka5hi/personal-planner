@@ -7,9 +7,54 @@
 
 .budget_top > div {
   flex: 1;
-  height: 320px;
+  height: 420px;
   background-color: var(--light-bg-color);
   border-radius: 5px;
   padding: 20px;
   box-shadow: rgb(0 0 0 / 15%) 2.4px 2.4px 3.2px;
+}
+
+.budget_bottom {
+  background-color: var(--light-bg-color);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgb(0 0 0 / 15%) 2.4px 2.4px 3.2px;
+}
+
+.budget_bottom > span {
+  display: block;
+  text-align: center;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.budget_bottom > .bugdet_transaction_smallnote {
+  font-size: 13px;
+  color: gray;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.transaction_list-heading_container {
+  max-width: 750px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.budget_bottom-inner {
+  max-width: 750px;
+  padding: 10px;
+  margin: 10px auto;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 200px;
+  overflow-y: auto;
 }
