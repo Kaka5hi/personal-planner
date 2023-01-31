@@ -5,11 +5,19 @@ import { MdCreate } from 'react-icons/md'
 
 import './BudgetCategory.css'
 
-const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryNameSubmit, setCategoryList, showTransactionPopup}) => {
+const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryWarning, setCategoryList, showTransactionPopup,setChartData, chartData}) => {
     
-    const handleDeleteBudgetCategory = (id) => {
+    const handleDeleteBudgetCategory = (id, catName) => {
         const newList = categoryList.filter(item => item.id !== id)
         setCategoryList(newList)
+
+        let filteredLabels = chartData.labels.filter(item => item !== catName);
+        setChartData(prev => {
+            return {
+                ...prev,
+                labels:filteredLabels
+            }
+        })
     }
 
     return (
@@ -27,9 +35,9 @@ const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryN
                 </button>
             </form>
             {
-                noCategoryNameSubmit
+                noCategoryWarning?.warning
                 &&
-                <span className="budget_category_warning">Name cannot be empty</span>
+                <span className="budget_category_warning">{noCategoryWarning?.msg}</span>
             }
             <div className="category_chips-container">
                 {
@@ -40,7 +48,7 @@ const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryN
                             <div className="chips_button">
                                 <FaTrashAlt
                                     title="Delete Category"
-                                    onClick={() => handleDeleteBudgetCategory(item?.id)}
+                                    onClick={() => handleDeleteBudgetCategory(item?.id, item.categoryName)}
                                     />
                                 <MdCreate
                                     title="Go to transaction"
