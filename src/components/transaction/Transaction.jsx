@@ -2,11 +2,11 @@ import React from 'react'
 import { MdOutlineClose } from 'react-icons/md'
 import './Transaction.css'
 
-const Transaction = ({setGotToTransaction, currentCategory,transactionList, setTransactionList}) => {
+const Transaction = ({setGotToTransaction, currentCategory, transactionList, setTransactionList}) => {
 
     const [transactionAmount, setTransactionAmount] = React.useState({
         currentCategory,
-        amount: "",
+        amount: 0,
         date: "",
         note:""
     })
@@ -15,8 +15,8 @@ const Transaction = ({setGotToTransaction, currentCategory,transactionList, setT
         e.preventDefault()
         const temp = {...transactionAmount, id: new Date().getTime()}
         setTransactionList(prev => [
-            ...prev,
-            temp
+            temp,
+            ...prev    
         ]);
         setGotToTransaction(false)
     }
@@ -34,20 +34,22 @@ const Transaction = ({setGotToTransaction, currentCategory,transactionList, setT
                     <form onSubmit={handleTransactionSubmit}>
                         <label htmlFor="amount">amount</label>
                         <input
-                            type="text"
+                            required
+                            type="number"
                             placeholder="Enter the amount"
                             id="amount"
-                            value={transactionAmount.amount}
+                            value={parseInt(transactionAmount.amount)}
                             autoComplete="off"
                             onChange={(e) => setTransactionAmount(prev => {
                                 return {
                                     ...prev,
-                                    amount:e.target.value
+                                    amount:parseInt(e.target.value)
                                 }
                             })}
                         />
                         <label htmlFor="date">pick date</label>
                         <input
+                            required
                             id="date"
                             type="date"
                             placeholder="Select date"
