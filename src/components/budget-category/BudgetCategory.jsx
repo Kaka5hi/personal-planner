@@ -5,19 +5,11 @@ import { MdCreate } from 'react-icons/md'
 
 import './BudgetCategory.css'
 
-const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryWarning, setCategoryList, showTransactionPopup,setChartData, chartData}) => {
+const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryWarning, setCategoryList, showTransactionPopup}) => {
     
     const handleDeleteBudgetCategory = (id, catName) => {
         const newList = categoryList.filter(item => item.id !== id)
         setCategoryList(newList)
-
-        let filteredLabels = chartData.labels.filter(item => item !== catName);
-        setChartData(prev => {
-            return {
-                ...prev,
-                labels:filteredLabels
-            }
-        })
     }
 
     return (
