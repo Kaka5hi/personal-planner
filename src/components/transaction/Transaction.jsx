@@ -2,7 +2,7 @@ import React from 'react'
 import { MdOutlineClose } from 'react-icons/md'
 import './Transaction.css'
 
-const Transaction = ({setGotToTransaction, currentCategory, transactionList, setTransactionList}) => {
+const Transaction = ({setGotToTransaction, currentCategory, setTransactionList}) => {
 
     const [transactionAmount, setTransactionAmount] = React.useState({
         currentCategory,
@@ -20,6 +20,8 @@ const Transaction = ({setGotToTransaction, currentCategory, transactionList, set
         ]);
         setGotToTransaction(false)
     }
+
+    
 
     return (
         <div className="transaction">
