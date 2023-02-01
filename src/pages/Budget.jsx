@@ -9,37 +9,8 @@ const Budget = () => {
     //category input
     const categoryRef = React.useRef("")
 
-    // dummy chart data
-    const data = {
-        datasets: [
-            {
-                label: 'total expense',
-                data: [],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                ],
-                borderWidth: 1,
-                hoverOffset: 4,
-            },
-        ],
-        labels: [],
-    }
-
     //budget category list 
-    const [categoryList, setCategoryList] = React.useState(JSON.parse(localStorage.getItem("transaction-category")) || [])
+    const [categoryList, setCategoryList] = React.useState(JSON.parse(localStorage.getItem('transaction-category')) || [])
 
     //for warning/popup text if user submit catgeory name empty
     const [noCategoryWarning, setNoCategoryWarning] = React.useState({warning:false, msg:""})
@@ -51,9 +22,7 @@ const Budget = () => {
     const [currentCategory, setCurrentCurrentCategory] = React.useState('')
 
     // transaction list for displaying every transaction
-    const [transactionList, setTransactionList] = React.useState(JSON.parse(localStorage.getItem("transaction-list")) || [])
-
-    const [chartData, setChartData] = React.useState(JSON.parse(localStorage.getItem("chart-data")) || data)
+    const [transactionList, setTransactionList] = React.useState(JSON.parse(localStorage.getItem('transaction-list')) || [])
 
     //function will create new categorty in category secion
     const createCategory = (e) => {
@@ -69,9 +38,6 @@ const Budget = () => {
             setCategoryList(prev => [
                 ...prev, {categoryName, id: new Date().getTime()}
             ])
-            let tempChartData = { ...chartData }
-            tempChartData.labels.push(categoryName)
-            setChartData(tempChartData)
             categoryRef.current.value = ""
             setNoCategoryWarning({ warning: false, msg: "" })
         }
@@ -82,19 +48,38 @@ const Budget = () => {
         setCurrentCurrentCategory(currentCategory)
     }
 
+    // function to calculate each category total sum
+    const sumOfEachCategory = () => {
+        const tempCatArray = categoryList.map(item => item.categoryName)
+        let totalSumOfSingleCategory;
+        let newData = []
+        tempCatArray.forEach(element => {
+            const categoryBasedInfo = transactionList.filter(item => item.currentCategory === element)
+            const categoryBasedAmount = categoryBasedInfo.map(item => item?.amount)
+            if (categoryBasedAmount.length === 0) {
+                totalSumOfSingleCategory = 0
+            } else {
+                totalSumOfSingleCategory = categoryBasedAmount.reduce((a,b) => a+b)
+            }
+            newData.push(totalSumOfSingleCategory)
+        })
+        return newData;
+    } 
+
+    // storing data locally
     React.useEffect(() => {
         localStorage.setItem("transaction-list", JSON.stringify(transactionList))
         localStorage.setItem("transaction-category", JSON.stringify(categoryList))
-        localStorage.setItem("chart-data", JSON.stringify(chartData))
-    }, [transactionList, categoryList, chartData])
+    }, [transactionList, categoryList])
 
     return (
         <div className='page-container' style={{position: 'relative'}}>
-            <h1 style={{ textAlign: 'center' }}>Budget</h1>
+            <h1 style={{ textAlign: 'center' }}>Expense Tracker</h1>
             <div className="budget_inner-container">
                 <div className="budget_top">
                     <DonutChart
-                        data={chartData}
+                        sumOfEachCategory={sumOfEachCategory}
+                        categoryList={categoryList}
                     />
                     <BudgetCategory
                         createCategory={createCategory}
@@ -103,8 +88,6 @@ const Budget = () => {
                         categoryList={categoryList}
                         setCategoryList={setCategoryList}
                         showTransactionPopup={showTransactionPopup}
-                        chartData={chartData}
-                        setChartData={setChartData}
                     />
                 </div>
                 {
@@ -119,7 +102,7 @@ const Budget = () => {
                 }
                 <div className="budget_bottom">
                     <span>transaction history</span>
-                    <span className="bugdet_transaction_smallnote">create expense categories like: Food, Rent, Saving etc.</span>
+                    <span className="bugdet_transaction_smallnote">see your recent transaction here</span>
                     <div className="transaction_list-heading_container" >
                         <span>category</span>
                         <span>date</span>
@@ -128,7 +111,10 @@ const Budget = () => {
                     </div>
                     <div className="budget_bottom-inner">
                         {
-                            transactionList?.map(item => <TransactionList key={item?.id} item={item}/>)
+                            transactionList?.map(item => <TransactionList
+                                key={item?.id}
+                                item={item}
+                            />)
                         }
                     </div>
                 </div>
