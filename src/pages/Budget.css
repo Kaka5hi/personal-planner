@@ -21,6 +21,37 @@
   box-shadow: rgb(0 0 0 / 15%) 2.4px 2.4px 3.2px;
 }
 
+.donut_chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.donut_chart > span {
+  position: absolute;
+  top: 15px;
+  background-color: var(--dark-bg-color);
+  color: var(--light-font-color);
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: rgb(0 0 0 / 15%) 1.4px 1.4px 3.2px;
+  animation: fade 2000ms ease forwards 1;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .budget_bottom > span {
   display: block;
   text-align: center;
