@@ -22,6 +22,7 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
     const [subTask, setSubTask] = React.useState('')
 
     const handleLabel = () => {
+        if(label === "") return
         const tempLabels = [...cardDetails.card_labels, label]
         setCardDetails(prev => {
             return {...prev, card_labels:tempLabels}
