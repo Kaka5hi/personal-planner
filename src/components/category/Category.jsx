@@ -18,21 +18,23 @@ const Category = ({category, setCategoryList, categoryList, createNewCard, delet
                             type={'category'}
                         />}
             <div className="category_heading">
-                <h4>{category?.category_name || 'New category'} <span>{category?.category_cards.length === 0 ? '' : category?.category_cards.length}</span></h4>
+                <h4>{category?.category_name || 'New category'} <span>{category?.category_cards.length === 0 ? '' : `${category?.category_cards.length} Task`}</span></h4>
                 <MdMoreHoriz onClick={() => setDropdown(prev => !prev)}/>
             </div>
-            <div className="category_cards-container ">
-                {category.category_cards?.map((card) => <Card 
-                                                            key={card?.card_id}
-                                                            cardId={card?.card_id}
-                                                            card={card} 
-                                                            deleteCard={deleteCard}
-                                                            categoryId={category?.category_id}
-                                                            handleDragEnd={handleDragEnd}
-                                                            handleDragEnter={handleDragEnter}
-                                                            categoryList={categoryList}
-                                                            setCategoryList={setCategoryList}
-                                                        />)}
+            <div className="category_cards-container" style={(category.category_cards.length === 0) ? {display:'none'} : {display:'flex'}}>
+                {
+                    category.category_cards?.map((card) => <Card
+                        key={card?.card_id}
+                        cardId={card?.card_id}
+                        card={card} 
+                        deleteCard={deleteCard}
+                        categoryId={category?.category_id}
+                        handleDragEnd={handleDragEnd}
+                        handleDragEnter={handleDragEnter}
+                        categoryList={categoryList}
+                        setCategoryList={setCategoryList}
+                    />)
+                }
             </div>
             <EditableCard 
                 text={'card'}
