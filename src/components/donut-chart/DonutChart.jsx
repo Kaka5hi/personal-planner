@@ -5,22 +5,32 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, DoughnutController,  Legend, Tooltip);
 
 const DonutChart = (props) => {
-    // function to convert label first letter to uppercase
+    // function to conver labels to uppercase
     const firstLetterCapital = (arr) => {
-        const data = arr.map(item => {
+        const data = arr?.map(item => {
             let temp = [...item]
             const capitalLetter = temp[0].toUpperCase()
-            temp.splice(0,1,capitalLetter)
-            return temp.join('')
+            temp?.splice(0,1,capitalLetter)
+            return temp?.join('')
         })
         return data
     }
+
+    // calculating total sum
+    const totalSum = (arr) => {
+        if (arr.length === 0) {
+            return 0
+        } else {
+            return arr.reduce((a, b) => a + b)
+        }
+    }
+
     // labels for pie chardt
-    const labelValues = firstLetterCapital(props.categoryList.map(item => item.categoryName))
+    const labelValues = firstLetterCapital(props.categoryList.map(item => item?.categoryName))
     // data for each label
-    const dataValue = props.sumOfEachCategory()
-    // total sum
-    const total = dataValue.reduce((a,b) => a + b)
+    const dataValue = props?.sumOfEachCategory()
+    // total sum variable
+    const total = totalSum(dataValue)
     // dummy data object
     const data = {
         labels: labelValues,
