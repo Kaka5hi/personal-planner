@@ -66,7 +66,7 @@ const Budget = () => {
         return newData;
     } 
 
-    // storing data locally
+
     React.useEffect(() => {
         localStorage.setItem("transaction-list", JSON.stringify(transactionList))
         localStorage.setItem("transaction-category", JSON.stringify(categoryList))
