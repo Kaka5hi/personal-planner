@@ -11,7 +11,7 @@ const Project = () => {
     const handleBoardName = (e) => {
         e.preventDefault()
         if(boardName) {
-            const newBoard = {id: new Date().getTime().toString(), boardName: boardName}
+            const newBoard = {id: new Date().getTime().toString(), boardName: boardName, categories:[]}
             setBoards(prev => [
                 ...prev,
                 newBoard
@@ -23,21 +23,12 @@ const Project = () => {
         }
     }
 
-    const getBoardsDataLocally = () => {
-        const data = JSON.parse(localStorage.getItem('boardList'))
-        if(data === null) {
-            return null
-        } else {
-            return data
-        }
-    }
-
-    React.useEffect(()=> {
-        const localData = getBoardsDataLocally()
-        if(localData === null) {
+    React.useEffect(() => {
+        let data = JSON.parse(localStorage.getItem('boardList'))
+        if (data === null) {
             return
         } else {
-            setBoards(localData);
+            setBoards(data)
         }
     }, [])
 
