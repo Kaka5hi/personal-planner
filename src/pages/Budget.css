@@ -26,21 +26,40 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  position: relative;
+  gap: 20px;
 }
 
-.donut_chart > span {
-  position: absolute;
-  top: 15px;
-  background-color: var(--dark-bg-color);
-  color: var(--light-font-color);
-  font-size: 1rem;
-  text-transform: capitalize;
-  font-weight: 700;
+.donut_chart > .donut_chart-info_container {
+  width: 280px;
   border-radius: 5px;
+  overflow: hidden;
+}
+
+.donut_chart > .donut_chart-info_container > p {
+  background-color: var(--dark-bg-color);
+  border-radius: 5px;
+  color: var(--light-font-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  animation: fade 1500ms ease forwards 1;
   padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.donut_chart > .donut_chart-info_container > .inner > span {
+  border-radius: 5px;
+  background-color: var(--light-bg-color);
   box-shadow: rgb(0 0 0 / 15%) 1.4px 1.4px 3.2px;
-  animation: fade 2000ms ease forwards 1;
+  font-size: 1rem;
+  font-weight: 700;
+  animation: fade 1500ms ease forwards 1;
+  padding: 10px 20px;
+}
+
+.donut_chart > .donut_chart-info_container > p::first-letter {
+  text-transform: capitalize;
 }
 
 @keyframes fade {
@@ -50,6 +69,20 @@
   to {
     opacity: 1;
   }
+}
+
+.donut_chart > .donut_chart-info_container > .inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-transform: capitalize;
+  font-weight: 700;
+  height: 280px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: rgba(202, 202, 202, 0.247);
+  box-shadow: rgb(0 0 0 / 15%) 1.4px 1.4px 3.2px;
 }
 
 .budget_bottom > span {
@@ -69,17 +102,24 @@
 }
 
 .transaction_list-heading_container {
-  max-width: 750px;
-  margin: 0 auto;
+  max-width: 730px;
+  margin: 0 auto 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  text-transform: capitalize;
+  background-color: var(--dark-bg-color);
+  border-radius: 5px;
+  color: var(--light-font-color);
+  font-size: 1.25rem;
   font-weight: 700;
+  animation: fade 1500ms ease forwards 1;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .budget_bottom-inner {
-  max-width: 750px;
+  max-width: 730px;
   padding: 10px;
   margin: 10px auto;
   min-height: 80px;
@@ -88,4 +128,6 @@
   gap: 10px;
   height: 200px;
   overflow-y: auto;
+  background-color: rgba(202, 202, 202, 0.247);
+  box-shadow: rgb(0 0 0 / 15%) 1.4px 1.4px 3.2px;
 }
