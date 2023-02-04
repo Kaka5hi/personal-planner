@@ -39,12 +39,15 @@ const DonutChart = (props) => {
                 label: 'total expense',
                 data: dataValue,
                 backgroundColor: [
-                    '#4cd964',
-                    '#007aff',
-                    '#337ab7',
-                    '#292b2c',
-                    '#d35400',
-                    '#B4674D',
+                    '#395F7F',
+                    '#DF422A',
+                    '#852525',
+                    '#6328B1',
+                    '#30C0D0',
+                    '#29CE52',
+                    '#47A41C',
+                    '#7D3C0A',
+                    '#09181F',
                 ],
                 borderColor: [
                     'white',
@@ -55,11 +58,34 @@ const DonutChart = (props) => {
         ],
         
     }
+    // combining each label name and total in one object
+    const infoArray = (labelValues, dataValue) => {
+        let combinedArr = []
+        for (let i = 0; i < labelValues.length; i++) {
+            combinedArr.push({label: labelValues[i], amount: dataValue[i]})
+        }
+        return combinedArr;
+    }
+
+    const info = infoArray(labelValues, dataValue)
 
     return (
         <div className="donut_chart">
-            <Doughnut data={data} options={{layout:{padding:40}}} />
-            <span>overall spending : {total}</span>
+            <div className="main">
+                <Doughnut data={data} options={{ layout: { padding: 10 } }} />
+            </div>
+            <div className="donut_chart-info_container">
+                <p>overall : {total}</p>
+                <div className="inner">
+                    {
+                        info.map((item, index) => {
+                            return (
+                                <span key={index}>{item.label} : {item.amount}</span>
+                            )
+                        })
+                    }
+                </div>
+            </div>
         </div>
     )
 }
