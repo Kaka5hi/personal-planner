@@ -5,11 +5,13 @@ import { MdCreate } from 'react-icons/md'
 
 import './BudgetCategory.css'
 
-const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryWarning, setCategoryList, showTransactionPopup}) => {
+const BudgetCategory = ({ createCategory, categoryRef, categoryList, noCategoryWarning, setCategoryList, showTransactionPopup, setTransactionList}) => {
     
     const handleDeleteBudgetCategory = (id, catName) => {
         const newList = categoryList.filter(item => item.id !== id)
         setCategoryList(newList)
+        const newLocalData = JSON.parse(localStorage.getItem('transaction-list')).filter(item => item.currentCategory !== catName)
+        setTransactionList(newLocalData)
     }
 
     return (
