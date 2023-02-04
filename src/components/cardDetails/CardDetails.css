@@ -202,3 +202,13 @@
   cursor: pointer;
   color: var(--dark-bg-color);
 }
+
+.card_error-msg {
+  text-align: center;
+  font-weight: 700;
+  color: #ff3b30;
+}
+
+.card_error-msg::first-letter {
+  text-transform: capitalize;
+}
