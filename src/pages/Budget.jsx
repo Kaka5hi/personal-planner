@@ -88,6 +88,7 @@ const Budget = () => {
                         categoryList={categoryList}
                         setCategoryList={setCategoryList}
                         showTransactionPopup={showTransactionPopup}
+                        setTransactionList={setTransactionList}
                     />
                 </div>
                 {
