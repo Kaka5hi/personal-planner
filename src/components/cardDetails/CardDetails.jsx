@@ -2,13 +2,13 @@ import React from 'react'
 import './CardDetails.css'
 import {MdOutlineClose} from 'react-icons/md'
 import {IoMdPricetag} from 'react-icons/io'
-import {FaTrashAlt} from 'react-icons/fa'
 import LabelChips from '../label-chips/LabelChips'
 
 const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId}) => {
 
+    // based on subtask inputs, it will be displayed while editing the card
     const [showSubtask, setShowSubtask] = React.useState(false)
-    const [cardIndex, setCardIndex] = React.useState(category?.category_cards?.length)
+    // dummy card
     const [cardDetails, setCardDetails] = React.useState({
         card_name: '',
         card_description: '',
@@ -17,9 +17,12 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
         card_date: '',
         card_subtasks: []
     })
-
+    // label input state 
     const [label, setLabel] = React.useState('')
+    // subtask input state
     const [subTask, setSubTask] = React.useState('')
+    // for toggling error msg for empty fields 
+    const [errorMsg, setErrorMsg] = React.useState(false)
 
     const handleLabel = () => {
         if(label === "") return
@@ -39,7 +42,17 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
         setSubTask('')
         setShowSubtask(false)    
     }
-
+    
+    const handleCreatingNewCard = () => {
+        if (cardDetails.card_name && cardDetails.card_description && cardDetails.card_labels && cardDetails.card_priority && cardDetails.card_date && cardDetails.card_subtasks) {
+            createNewCard(cardDetails, categoryId);
+        } else {
+            setErrorMsg(prev => !prev)
+            setTimeout(() => {
+                setErrorMsg(false)
+            }, 4000);
+        }
+    }
 
     return (
         <div className='card_details'>
@@ -141,7 +154,6 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
                                     <div key={task?.subtask_id} className='subtask'>
                                         <input type="checkbox"/>
                                         <p>{task?.subtask_name}</p>
-                                        <FaTrashAlt />
                                     </div>
                                 )
                             })    
@@ -163,7 +175,12 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
                         }
                         <span onClick={()=> setShowSubtask(true)} >+ add subtasks</span>
                     </div>
-                    <button onClick={() => createNewCard(cardDetails, categoryId)} style={{alignSelf:'flex-end'}}>create card</button>
+                    {
+                        errorMsg
+                        &&
+                        <span className="card_error-msg">fields are empty</span>
+                    }
+                    <button onClick={handleCreatingNewCard} style={{alignSelf:'flex-end'}}>create card</button>
                 </div>
             </div>
         </div>
