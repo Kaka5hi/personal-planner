@@ -17,7 +17,7 @@ const App = () => {
                 <Route path='/' element={<Sharedlayout />}>
                     <Route index element={<Home />} />
                     <Route path='/project' element={<Project />} />
-                    <Route path='/project/board/:id' element={<Board />} />
+                    <Route path='/project/board/:name/:id' element={<Board />} />
                     <Route path='/budget' element={<Budget />} />
                     <Route path='/notes' element={<Notes />} />
                     <Route path='/setting' element={<Setting />} />
