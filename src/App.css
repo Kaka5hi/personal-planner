@@ -83,7 +83,6 @@ nav > ul > li > a svg {
 main {
   width: 100%;
   background-color: var(--body-bg-color);
-  min-height: 100vh;
   overflow-x: auto;
 }
 
@@ -123,4 +122,25 @@ header > button:hover {
   color: var(--light-bg-color);
   background-color: var(--dark-font-color);
   transition: 100ms ease;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(223, 223, 223);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 40px;
+  background: rgb(212, 212, 212);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(163, 163, 163);
 }
