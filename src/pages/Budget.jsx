@@ -3,6 +3,7 @@ import BudgetCategory from '../components/budget-category/BudgetCategory'
 import DonutChart from '../components/donut-chart/DonutChart'
 import TransactionList from '../components/transaction-list/TransactionList'
 import Transaction from '../components/transaction/Transaction'
+import {BiDownArrow, BiUpArrow} from 'react-icons/bi'
 import './Budget.css'
 
 const Budget = () => {
@@ -23,6 +24,9 @@ const Budget = () => {
 
     // transaction list for displaying every transaction
     const [transactionList, setTransactionList] = React.useState(JSON.parse(localStorage.getItem('transaction-list')) || [])
+
+    // toggle transaction area
+    const [showTransaction, setShowTransaction] = React.useState(false)
 
     //function will create new categorty in category secion
     const createCategory = (e) => {
@@ -104,13 +108,13 @@ const Budget = () => {
                 <div className="budget_bottom">
                     <span>transaction history</span>
                     <span className="bugdet_transaction_smallnote">see your recent transaction here</span>
-                    <div className="transaction_list-heading_container" >
+                    <div className="transaction_list-heading_container" style={showTransaction ? {display:'flex'} : {display:'none'}} >
                         <span>category</span>
                         <span>date</span>
                         <span>note</span>
                         <span>amount</span>
                     </div>
-                    <div className="budget_bottom-inner">
+                    <div className="budget_bottom-inner" style={showTransaction ? {display:'flex'} : {display:'none'}}>
                         {
                             transactionList?.map(item => <TransactionList
                                 key={item?.id}
@@ -118,6 +122,10 @@ const Budget = () => {
                             />)
                         }
                     </div>
+                    <button
+                        className="toggle-btn"
+                        onClick={()=> setShowTransaction( prev => !prev )}
+                    >{ showTransaction ? <BiUpArrow /> : <BiDownArrow />}</button>
                 </div>
             </div>
         </div>
