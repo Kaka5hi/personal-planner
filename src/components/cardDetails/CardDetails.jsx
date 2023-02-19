@@ -25,22 +25,35 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
     const [errorMsg, setErrorMsg] = React.useState(false)
 
     const handleLabel = () => {
-        if(label === "") return
-        const tempLabels = [...cardDetails.card_labels, label]
-        setCardDetails(prev => {
-            return {...prev, card_labels:tempLabels}
-        })
-        setLabel('')
+        if (label === "") {
+            setErrorMsg(true)
+            setTimeout(() => {
+                setErrorMsg(false)
+            }, 1000);            
+        } else {
+            const tempLabels = [...cardDetails.card_labels, label]
+            setCardDetails(prev => {
+                return {...prev, card_labels:tempLabels}
+            })
+            setLabel('')
+        }
     }
 
     const handleSubtaskSubmit = () => {
-        const newSubTask = {subtask_status: false,subtask_name: subTask, subtask_id: new Date().getTime()}
-        const tempSubtasks = [...cardDetails.card_subtasks, newSubTask]
-        setCardDetails(prev => {
-            return {...prev, card_subtasks:tempSubtasks}
-        })
-        setSubTask('')
-        setShowSubtask(false)    
+        if (subTask === '') {
+            setErrorMsg(true)
+            setTimeout(() => {
+                setErrorMsg(false)
+            }, 2000);
+        } else {
+            const newSubTask = {subtask_status: false,subtask_name: subTask, subtask_id: new Date().getTime()}
+            const tempSubtasks = [...cardDetails.card_subtasks, newSubTask]
+            setCardDetails(prev => {
+                return {...prev, card_subtasks:tempSubtasks}
+            })
+            setSubTask('')
+            setShowSubtask(false)    
+        }
     }
     
     const handleCreatingNewCard = () => {
@@ -140,9 +153,11 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
                             <input 
                                 type='date'
                                 autoComplete="off"
-                                onChange={(e) => setCardDetails(prev => {
+                                onChange={
+                                    (e) => setCardDetails(prev => {
                                             return {...prev, card_date: e.target.value}
-                                        })}
+                                    })
+                                }
                             />
                         </div>
                     </div>
@@ -158,7 +173,8 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
                                 )
                             })    
                         }
-                        {showSubtask && 
+                        {
+                            showSubtask &&
                             <div className="subtask_input-container">
                                 <input 
                                     type="text"
@@ -178,7 +194,7 @@ const CardDetails = ({setShowEditableCard, createNewCard, category, categoryId})
                     {
                         errorMsg
                         &&
-                        <span className="card_error-msg">fields are empty</span>
+                        <span className="card_error-msg">fields are empty or incorrect</span>
                     }
                     <button onClick={handleCreatingNewCard} style={{alignSelf:'flex-end'}}>create card</button>
                 </div>
