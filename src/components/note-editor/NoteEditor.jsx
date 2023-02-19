@@ -3,10 +3,11 @@ import {IoMdPricetag} from 'react-icons/io'
 import {MdOutlineClose} from 'react-icons/md'
 import './NoteEditor.css'
 
-const NoteEditor = ({ createNewNote, setShowNetEditor}) => {
+const NoteEditor = ({ createNewNote, setShowNetEditor, errorMsg, setErrorMsg}) => {
 
     const [noteTags, setNoteTags] = React.useState("")
     const [tagArray, setTagArray] = React.useState([])
+
 
     // dummy note object
     const [singleNote, setSingleNote] = React.useState({
@@ -14,17 +15,25 @@ const NoteEditor = ({ createNewNote, setShowNetEditor}) => {
         tags: [],
         content: ''
     })
+
     // add tag and display on editor
     const handleTagSubmit = () => {
-        const tempTag = {
-            id: new Date().getTime(),
-            name: noteTags
+        if (noteTags) {    
+            const tempTag = {
+                id: new Date().getTime(),
+                name: noteTags
+            }
+            setTagArray(prev => [
+                ...prev,
+                tempTag
+            ])
+            setNoteTags("")
+        } else {
+            setErrorMsg(true)
+            setTimeout(() => {
+                setErrorMsg(false)
+            }, 1500);   
         }
-        setTagArray(prev => [
-            ...prev,
-            tempTag
-        ])
-        setNoteTags("")
     }
 
     // delete tags from editior as well as from the tag array 
@@ -89,6 +98,11 @@ const NoteEditor = ({ createNewNote, setShowNetEditor}) => {
                     })}
                 ></textarea>
             </div>
+            {
+                errorMsg
+                &&
+                <span className="card_error-msg" >field empty</span>
+            }
             <div className="note_bottom">
                 <button onClick={() => createNewNote(singleNote)} >create</button>
                 <button onClick={() => setShowNetEditor(false)} >cancel</button>
