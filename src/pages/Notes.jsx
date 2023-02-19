@@ -12,15 +12,24 @@ const Notes = () => {
     const [showNoteEditor, setShowNetEditor] = React.useState(false)
     // query state for search functionality
     const [query, setQuery] = React.useState('')
+    // erro message if input field is empty while submitting
+    const [errorMsg, setErrorMsg] = React.useState(false)
 
     // create new note function
     const createNewNote = (newNote) => {
-        const temp = { ...newNote, id: new Date().getTime() }
-        setNotes(prev => [
-            ...prev,
-            temp
-        ])
+        if (newNote?.title === '') {
+            setErrorMsg(true)
+            setTimeout(() => {
+                setErrorMsg(false)
+            }, 1500); 
+        } else {
+            const temp = { ...newNote, id: new Date().getTime() }
+            setNotes(prev => [
+                ...prev,
+                temp
+            ])
         setShowNetEditor(false)
+        }
     }
     
     const filteredNotes = React.useMemo(() => {
@@ -56,6 +65,8 @@ const Notes = () => {
                         <NoteEditor
                             createNewNote={createNewNote}
                             setShowNetEditor={setShowNetEditor}
+                            errorMsg={errorMsg}
+                            setErrorMsg={setErrorMsg}
                         />
                     }
                     {
