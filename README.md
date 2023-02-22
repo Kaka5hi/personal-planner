@@ -1,9 +1,9 @@
 
 # Personal Planner
-Personal Planner is a web-based SaaS platform built with React that allows users to manage their personal tasks, work, expenses and stay organized.  
+Personal Planner is a platform built with ReactJs that allows users to manage their personal tasks, work, expenses and stay organized.  
 
 # Idea for the project  
-The Personal Planner SaaS platform was designed with the idea of creating a single platform where users can manage all of their work, personal tasks, goals, and expenses in one place. By providing a central location for all of this information, Personal Planner aims to simplify the process of managing one's daily tasks and long-term goals, while also making it easy to track expenses and manage finances.  
+The Personal Planner platform was designed with the idea of creating a single platform where users can manage all of their work, personal tasks, goals, and expenses in one place. By providing a central location for all of this information, Personal Planner aims to simplify the process of managing one's daily tasks and long-term goals, while also making it easy to track expenses and manage finances.  
 
 # Key features include:
 
