@@ -6,7 +6,7 @@ const Project = () => {
 
     const [showPopupModal, setShowPopupModal] = React.useState(false)
     const [boardName, setBoardName] = React.useState('')
-    const [boards, setBoards] = React.useState([])
+    const [boards, setBoards] = React.useState(JSON.parse(localStorage.getItem('boardList')) || [])
 
     const handleBoardName = (e) => {
         e.preventDefault()
@@ -23,15 +23,6 @@ const Project = () => {
         }
     }
 
-    React.useEffect(() => {
-        let data = JSON.parse(localStorage.getItem('boardList'))
-        if (data === null) {
-            return
-        } else {
-            setBoards(data)
-        }
-    }, [])
-
     return (
         <div className='page-container'>
             <div className="project_outer-container">
@@ -39,36 +30,39 @@ const Project = () => {
                     <button onClick={() => setShowPopupModal(true)} title='Create Board'>Create Board +</button>
                 </div>
 
-                {/* Here we will add board containers when user click on create card and give the board name */}
-                {boards.map(item => <SingleBoardBtn 
+                {
+                    boards.map(item => <SingleBoardBtn
                                         key={item.id} 
                                         item={item} 
                                         boards={boards} 
                                         setBoards={setBoards} 
-                                    />)}
+                    />)
+                }
             </div>
             
-            {showPopupModal && <div className="create_board-popup_modal">
-                <div className="inner-container">
-                    <div className="top">
-                        <h4>New Board</h4>
-                    </div>
-                    <div className="middle">
-                        <form onSubmit={handleBoardName}>
-                            <input 
-                                autoFocus
-                                type="text"
-                                placeholder='Enter a name for the Board'
-                                onChange={(e) => setBoardName(e.target.value)}
-                            />
-                        </form>
-                    </div>
-                    <div className="bottom">
-                        <button onClick={() => setShowPopupModal(false)} >Cancel</button>
-                        <button onClick={handleBoardName}>Create</button>
+            {
+                showPopupModal && <div className="create_board-popup_modal">
+                    <div className="inner-container">
+                        <div className="top">
+                            <h4>New Board</h4>
+                        </div>
+                        <div className="middle">
+                            <form onSubmit={handleBoardName}>
+                                <input 
+                                    autoFocus
+                                    type="text"
+                                    placeholder='Enter a name for the Board'
+                                    onChange={(e) => setBoardName(e.target.value)}
+                                />
+                            </form>
+                        </div>
+                        <div className="bottom">
+                            <button onClick={() => setShowPopupModal(false)} >Cancel</button>
+                            <button onClick={handleBoardName}>Create</button>
+                        </div>
                     </div>
                 </div>
-            </div>}
+            }
         </div>
     )
 }
