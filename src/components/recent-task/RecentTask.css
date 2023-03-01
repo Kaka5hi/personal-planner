@@ -16,7 +16,7 @@
   gap: 10px;
   text-transform: capitalize;
   font-family: inherit;
-  font-size: 1vw;
+  font-size: 1rem;
   transition: 100ms ease;
   border: 1px solid transparent;
 }
@@ -44,8 +44,6 @@
 
 .single-task_top,
 .gird-view-top {
-  display: flex;
-  align-items: center;
   text-transform: capitalize;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   padding: 10px;
@@ -146,4 +144,58 @@
 
 .no-data-section > h4 {
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1080px) {
+  .gird-view-bottom > .right {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .recent-task_button-container,
+  .recent-task_inner-container {
+    margin-top: 15px;
+  }
+
+  .gird-view-bottom > .right {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .single-task_top,
+  .gird-view-top {
+    font-size: 1.25rem;
+  }
+  .recent-task_button-container > button {
+    display: none;
+  }
+
+  .recent-task_inner-container {
+    display: block;
+  }
+
+  .recent-task_button-container {
+    margin: unset;
+  }
+
+  .recent-task_inner-container > .single-task {
+    display: none;
+  }
+
+  .recent-task_inner-container > .grid-view {
+    margin-bottom: 15px;
+  }
+
+  .gird-view-bottom > .right {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .gird-view-bottom {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
 }
