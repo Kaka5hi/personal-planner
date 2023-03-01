@@ -19,7 +19,7 @@ const Home = () => {
                 </div> 
                 <div className='bottom-section'>
                     <div className="bottom-section_left">
-                        <h1>recent task</h1>
+                        <h1>Projects</h1>
                         <RecentTask />
                     </div>
                     <div className="bottom-section_right">
