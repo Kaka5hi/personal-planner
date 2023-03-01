@@ -168,3 +168,21 @@
   background-color: var(--dark-bg-color);
   color: var(--light-font-color);
 }
+
+@media screen and (max-width: 1080px) {
+  .project_outer-container {
+    padding: unset;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .create_board-item_container > h1 {
+    font-size: 1.25rem;
+  }
+
+  .create_board-item_container > .btn-container > a svg,
+  .create_board-item_container > .btn-container > button svg {
+    font-size: 1rem;
+  }
+}
