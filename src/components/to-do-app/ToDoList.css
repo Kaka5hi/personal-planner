@@ -78,3 +78,17 @@
 .to-do_list-container > .single-task > button > svg {
   font-size: 1.25vw;
 }
+
+@media screen and (max-width: 768px) {
+  .to-do_input-container > input,
+  .to-do_input-container > button,
+  .to-do_list-container > .single-task > span,
+  .to-do_list-container > .single-task > button > svg {
+    font-size: 1rem;
+  }
+
+  .to-do_list-container > .single-task > span {
+    max-width: 300px;
+    padding-right: 10px;
+  }
+}
