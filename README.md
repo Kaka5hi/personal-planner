@@ -12,5 +12,5 @@ The Personal Planner platform was designed with the idea of creating a single pl
 - **Personal notes**: Notes apps often provide users with tools for organizing and categorizing their notes, such as tags or folders, this section contains all the basic functionality of CRUD operation.<br>  
 - **Expense tracker**: Track spending by creating categories and recording transactions, with a transaction history.<br>  
 - **Intuitive UI**: An easy-to-use interface for navigating and managing personal information.<br>  
-This project offers a range of basic functionalities to help users manage their personal lives in an organized and efficient manner.  
+
 Check the live project <a href='https://personal-planner-sm.netlify.app/'>here</a>  
