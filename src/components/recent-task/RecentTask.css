@@ -44,6 +44,7 @@
 
 .single-task_top,
 .gird-view-top {
+  display: flex;
   text-transform: capitalize;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   padding: 10px;
@@ -197,5 +198,11 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .gird-view-bottom > .right {
+    font-size: 1rem;
   }
 }
