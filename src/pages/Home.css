@@ -88,9 +88,11 @@
   .top-section > .top-section_left h1 {
     font-size: 2.5rem;
   }
+
   .top-section > .top-section_left span {
     font-size: 1rem;
   }
+
   .top-section > .top-section_right {
     width: 80%;
   }
@@ -101,5 +103,12 @@
 
   .bottom-section > .bottom-section_right {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .top-section > .top-section_right,
+  .bottom-section > .bottom-section_right {
+    width: 100%;
   }
 }
