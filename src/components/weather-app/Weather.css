@@ -43,10 +43,6 @@
   border-radius: 10px;
 }
 
-svg {
-  font-size: 1.25vw;
-}
-
 .widget-inner_container:nth-child(1) {
   gap: 0;
 }
@@ -86,5 +82,14 @@ svg {
   .widget-inner_container:nth-child(3) span {
     font-size: 0.75rem;
     text-align: end;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .widget-inner_container:nth-child(1) > h1 {
+    font-size: 2rem;
+  }
+  .widget-inner_container:nth-child(1) span {
+    font-size: 0.75rem;
   }
 }
