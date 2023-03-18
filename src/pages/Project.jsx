@@ -24,7 +24,7 @@ const Project = () => {
     }
 
     return (
-        <div className='page-container'>
+        <div className='page-container' style={{minHeight:'100vh'}}>
             <div className="project_outer-container">
                 <div className="create_board-btn_container">
                     <button onClick={() => setShowPopupModal(true)} title='Create Board'>Create Board +</button>
