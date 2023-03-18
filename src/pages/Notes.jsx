@@ -41,7 +41,7 @@ const Notes = () => {
     }, [notes])
 
     return (
-        <div className='page-container'>
+        <div className='page-container' style={{minHeight:'100vh'}}>
             <h1 style={{ textAlign: 'center' }}>Notes</h1> 
             <div className="notes_outer-container">
                 <div className="notes_top">
